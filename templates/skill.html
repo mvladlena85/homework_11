@@ -5,12 +5,12 @@
     <title>Skill search</title>
 </head>
 <body>
-{% if candidates_quantity == 0 %}
+{% if candidates|length == 0 %}
 <h1>Не найдено</h1>
 {% else %}
-<h1>Найдено со скиллом {{ skill }}: {{ candidates_quantity }}</h1>
+<h1>Найдено со скиллом {{ skill }}: {{ candidates|length }}</h1>
 {% for candidate in candidates %}
-<p><a href="/candidate/{{ candidate['id'] }}">{{ candidate['name'] }}</a></p>
+<p><a href="/candidate/{{ candidate.id }}">{{ candidate.name }}</a></p>
 {% endfor %}
 {% endif %}
 </body>

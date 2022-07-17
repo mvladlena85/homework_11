@@ -21,18 +21,18 @@ def candidate_card(uid):
     return render_template('card.html', candidate_card=candidate)
 
 
-@app.route("/candidate/<candidate_name>/")
+@app.route("/search/<candidate_name>/")
 def search_candidates_by_name(candidate_name):
     candidates = get_candidates_by_name(candidate_name)
     candidates_quantity = len(candidates)
-    return render_template('search.html', candidates=candidates, candidates_quantity=candidates_quantity)
+    return render_template('search.html', candidates=candidates)
 
 
 @app.route("/skill/<skill>/")
 def search_candidates_by_skill(skill):
     candidates = get_candidates_by_skill(skill)
     candidates_quantity = len(candidates)
-    return render_template('skill.html', skill=skill, candidates=candidates, candidates_quantity=candidates_quantity)
+    return render_template('skill.html', skill=skill, candidates=candidates)
 
 
 app.run()
